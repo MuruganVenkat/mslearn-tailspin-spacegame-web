@@ -56,6 +56,10 @@ steps:
       sonar.cs.opencover.reportsPaths=$(Build.SourcesDirectory)/TestResults/Coverage/coverage.opencover.xml
       sonar.exclusions=**/wwwroot/lib/**/*
 
+- task: UseDotNet@2
+  displayName: 'Use .NET Core SDK to build the project'
+  inputs:
+    version: '$(dotnetSdkVersion)'
 - task: DotNetCoreCLI@2
   displayName: 'Build the project - $(buildConfiguration)'
   inputs:
